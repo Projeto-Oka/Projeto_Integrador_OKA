@@ -1,5 +1,6 @@
 package com.projetooka.projetooka.controller;
 
+import com.projetooka.projetooka.*;
 import com.projetooka.projetooka.model.Categoria;
 import com.projetooka.projetooka.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +9,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
+
+import javax.validation.Valid;
+
 
 @RestController
 @RequestMapping ("/categoria")
@@ -35,11 +38,13 @@ public class CategoriaController {
 
     @GetMapping ("/nome/{nome}")
     public ResponseEntity<List<Categoria>> getBynome(@PathVariable String nome) {
-        try {
-            return ResponseEntity.ok(categoriaRepository.findAllByNomeContainingIgnoreCase(nome));
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build();
-        }
+        
+    	List<Categoria>categorias=categoriaRepository.findAllByNomeContainingIgnoreCase(nome);
+    	if(categorias.isEmpty())
+    		return ResponseEntity.notFound().build();
+
+            return ResponseEntity.ok(categorias);
+           
     }
 
     @PostMapping
