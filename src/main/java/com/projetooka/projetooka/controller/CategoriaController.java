@@ -33,15 +33,18 @@ public class CategoriaController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping ("nome/{nome}")
+    @GetMapping ("/nome/{nome}")
     public ResponseEntity<List<Categoria>> getBynome(@PathVariable String nome) {
-        return ResponseEntity.ok(categoriaRepository.findAllByNomeContainingIgnoreCase(nome));
+        try {
+            return ResponseEntity.ok(categoriaRepository.findAllByNomeContainingIgnoreCase(nome));
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PostMapping
     public ResponseEntity<Categoria> post(@Valid @RequestBody Categoria categoria) {
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .body(categoriaRepository.save(categoria));
+        return ResponseEntity.status(HttpStatus.CREATED).body(categoriaRepository.save(categoria));
     }
 
     @PutMapping
