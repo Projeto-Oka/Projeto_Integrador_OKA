@@ -7,12 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ProjetoOKA" />
+        <module name="Projeto_Integrador_OKA" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ProjetoOKA" options="-parameters" />
+      <module name="Projeto_Integrador_OKA" options="-parameters" />
     </option>
   </component>
 </project>
