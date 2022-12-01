@@ -24,15 +24,15 @@ public class Usuario {
     private String email;
 
 
-    @NotBlank(message = "Deve conter no minimo 8 e no maximo 16 caracteres")
-    @Size(min = 8, max = 16)
+    @NotBlank(message = "Deve conter no minimo 8 caracteres")
+    @Size(min = 8)
     private String senha;
 
     private String foto;
 
 
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)
-    @JsonIgnoreProperties("categoria")
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
+    @JsonIgnoreProperties("usuario")
     private List<Produto> produtos;
 
     public Long getId() {
