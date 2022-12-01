@@ -20,82 +20,82 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name = "tb_produto")
 public class Produto {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@NotBlank(message = "Nome do produto é obrigatório")
-	private String nome;
+    @NotBlank(message = "Nome do produto é obrigatório")
+    private String nome;
 
-	@NotBlank(message = "Descricao é obrigatória")
-	private String descricao;
+    @NotBlank(message = "Descricao é obrigatória")
+    private String descricao;
 
-	@NotNull(message = "Preço é obrigatório")
-	private BigDecimal preco;
+    @NotNull(message = "Preço é obrigatório")
+    private BigDecimal preco;
 
-	@NotNull(message = "Deve ser verdadeiro ou falso")
-	private Boolean ativo;
+    @NotNull(message = "Deve ser verdadeiro ou falso")
+    private Boolean ativo;
 
-	@NotNull(message = "Deve conter um valor de produto")
-	private Integer quantidade;
+    @NotNull(message = "Deve conter um valor de produto")
+    private Integer quantidade;
 
-	@ManyToOne
-	@JsonIgnoreProperties("produto")
-	private Categoria categoria;
+    @ManyToOne
+    @JsonIgnoreProperties("produto")
+    private Categoria categoria;
 
-	public Long getId() {
-		return id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public String getDescricao() {
-		return descricao;
-	}
+    public String getDescricao() {
+        return descricao;
+    }
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 
-	public BigDecimal getPreco() {
-		return preco;
-	}
+    public BigDecimal getPreco() {
+        return preco;
+    }
 
-	public void setPreco(BigDecimal preco) {
-		this.preco = preco;
-	}
+    public void setPreco(BigDecimal preco) {
+        this.preco = preco;
+    }
 
-	public Boolean getAtivo() {
-		return ativo;
-	}
+    public Boolean getAtivo() {
+        return ativo;
+    }
 
-	public void setAtivo(Boolean ativo) {
-		this.ativo = ativo;
-	}
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
+    }
 
-	public Integer getQuantidade() {
-		return quantidade;
-	}
+    public Integer getQuantidade() {
+        return quantidade;
+    }
 
-	public void setQuantidade(Integer quantidade) {
-		this.quantidade = quantidade;
-	}
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
 
-	public Categoria getCategoria() {
-		return categoria;
-	}
+    public Categoria getCategoria() {
+        return categoria;
+    }
 
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 }

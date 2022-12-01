@@ -16,8 +16,8 @@ import javax.validation.Valid;
 
 
 @RestController
-@RequestMapping ("/categoria")
-@CrossOrigin (origins = "*", allowedHeaders = "*")
+@RequestMapping("/categoria")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 
 public class CategoriaController {
 
@@ -29,22 +29,22 @@ public class CategoriaController {
         return ResponseEntity.ok(categoriaRepository.findAll());
     }
 
-    @GetMapping ("/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Categoria> getById(@PathVariable Long id) {
         return categoriaRepository.findById(id)
                 .map(res -> ResponseEntity.ok(res))
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping ("/nome/{nome}")
+    @GetMapping("/nome/{nome}")
     public ResponseEntity<List<Categoria>> getBynome(@PathVariable String nome) {
-        
-    	List<Categoria>categorias=categoriaRepository.findAllByNomeContainingIgnoreCase(nome);
-    	if(categorias.isEmpty())
-    		return ResponseEntity.notFound().build();
 
-            return ResponseEntity.ok(categorias);
-           
+        List<Categoria> categorias = categoriaRepository.findAllByNomeContainingIgnoreCase(nome);
+        if (categorias.isEmpty())
+            return ResponseEntity.notFound().build();
+
+        return ResponseEntity.ok(categorias);
+
     }
 
     @PostMapping
@@ -61,8 +61,8 @@ public class CategoriaController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
-    @ResponseStatus (HttpStatus.NO_CONTENT)
-    @DeleteMapping ("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
 
         Optional<Categoria> categoria = categoriaRepository.findById(id);
