@@ -30,20 +30,25 @@ public class BasicSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-            .sessionManagement()
-            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            .and().csrf().disable()
-            .cors();
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and().csrf().disable()
+                .cors();
 
         http
-            .authorizeHttpRequests((auth) -> auth
-                .antMatchers("/usuarios/logar").permitAll()
-                .antMatchers("/usuarios/cadastrar").permitAll()
-                .antMatchers(HttpMethod.OPTIONS).permitAll()
-                .anyRequest().authenticated())
-            .httpBasic();
+                .authorizeHttpRequests((auth) -> auth
+                        .antMatchers("/usuarios/logar").permitAll()
+                        .antMatchers("/usuarios/cadastrar").permitAll()
+                        .antMatchers("/produto").permitAll()
+                        .antMatchers("/produto/{id}").permitAll()
+                        .antMatchers("/categoria").permitAll()
+                        .antMatchers("/categoria/{id}").permitAll()
+                        .antMatchers(HttpMethod.OPTIONS).permitAll()
+                        .anyRequest().authenticated())
+                .httpBasic();
 
         return http.build();
+
 
     }
 
