@@ -3,6 +3,7 @@ package com.projetooka.projetooka.controller;
 import com.projetooka.projetooka.model.Usuario;
 import com.projetooka.projetooka.model.UsuarioLogin;
 import com.projetooka.projetooka.repository.UsuarioRepository;
+import com.projetooka.projetooka.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +17,9 @@ import java.util.Optional;
 @RequestMapping("/usuarios")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UsuarioController {
-    //@Autowired
-    //private UsuarioService usuarioService;
+
+    @Autowired
+    private UsuarioService usuarioService;
 
     @Autowired
     private UsuarioRepository usuarioRepository;
@@ -32,7 +34,7 @@ public class UsuarioController {
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> getById(@PathVariable Long id){
         return usuarioRepository.findById(id)
-                .map(resposta -> ResponseEntity.ok(resposta))
+                .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
