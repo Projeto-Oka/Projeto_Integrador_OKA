@@ -17,34 +17,18 @@ import org.springframework.context.annotation.Configuration;
 public class SwaggerConfig {
 
     @Bean
-    public OpenAPI springBlogPessoalOpenAPI() {
+    public OpenAPI springProjetoOkaOpenAPI() {
         return new OpenAPI().info(new Info()
                         .title("Projeto Integrador - OKA")
-                        .description("Projeto Integrador - NEOCAMPE MLB")
+                        .description("Projeto Integrador - IT NEOCAMP MLB")
                         .version("v0.0.1")
                         .license(new License()
                                 .name("Generation Brasil")
                                 .url("https://brazil.generation.org"))
                         .contact(new Contact()
-                                .name("Guilherme A. Silva")
-                                .url("https://github.com/GuilhermeAX/")
-                                .email("guilherme.salmeida@mercadolivre.com")).
-                        contact(new Contact()
-                                .name("Jorge Gabriel Chagas Galvão")
-                                .url("https://github.com/g-galvao")
-                                .email("gabriel.ggalvao@mercadolivre.com"))
-                        .contact(new Contact()
-                                .name("Josias Barreto")
-                                .url("https://github.com/josiasbarretob")
-                                .email("josias.borges@mercadolivre.com"))
-                        .contact(new Contact()
-                                .name("Willian Guimaraes Gilloni")
-                                .url("https://github.com/willianggilloni")
-                                .email("willian.gilloni@mercadolivre.com"))
-                        .contact(new Contact()
-                                .name("Davi Toledo Mattos")
-                                .url("https://github.com/DaviMattosMeli")
-                                .email("davi.mattos@mercadolivre.com")))
+                                .name("Time de desenvolvimento OKA")
+                                .url("https://github.com/orgs/Projeto-Oka/teams/teamoka/members")
+                                .email("guilherme.salmeida@mercadolivre.com")))
                 .externalDocs(new ExternalDocumentation()
                         .description("GitHub do Projeto Integrador")
                         .url("https://github.com/Projeto-Oka/Projeto_Integrador_OKA"));
