@@ -25,7 +25,6 @@ public class Usuario {
     private String email;
 
     @NotNull (message = "O Usuário é obrigatório.")
-    @Email (message = "Para realizar login, o email precisa ser válido.")
     private String usuario;
 
     @NotBlank (message = "A Senha deve ter no mínimo 8 caracteres")
